@@ -1,0 +1,11 @@
+.generate {
+    background-color:#97caff;
+    color: #333;
+    transition: .5s ease-in-out;
+    border-radius: 10px;
+}
+
+.generate:hover {
+    background-color:#6eb5ff;
+    color: #333;
+}

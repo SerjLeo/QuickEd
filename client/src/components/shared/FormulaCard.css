@@ -1,0 +1,41 @@
+.formula-card {
+    display: flex;
+    max-width: 1200px;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.formula-description {
+    text-align: left;
+}
+
+.formula-answer {
+    display: flex;
+    align-items: center;
+}
+
+.formula-answer-section {
+    width: 300px;
+    text-align: left;
+}
+
+.formula-title {
+    margin-bottom: 5px;
+}
+
+.formula-subject {
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.show-answer {
+    background-color:#72ff85;
+    border-radius: 5px;
+}
+
+.show-answer {
+    background-color:#93ffbc;
+}
