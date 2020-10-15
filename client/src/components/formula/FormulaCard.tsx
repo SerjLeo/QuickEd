@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {Formula} from "../../interfaces";
+import {IFormula} from "../../helpers/interfaces";
 import MathJax from "react-mathjax"
-import './FormulaCard.css'
+import '../../styles/FormulaCard.css'
 
 interface FormulaCard {
-    formula: Formula
+    formula: IFormula
 }
 
 function FormulaCard({formula} : FormulaCard) {

@@ -1,13 +1,14 @@
 import React, {ReactElement} from 'react';
-import './MainLayout.css'
+import '../styles/MainLayout.css'
 import {Link} from 'react-router-dom'
-import {StandardComponentProps} from '../../interfaces'
-import AtomIcon from '../../images/atom-icon.png'
+import {StandardComponentProps} from '../helpers/interfaces'
+import AtomIcon from '../images/atom-icon.png'
 import {Typography, AppBar, Toolbar, Button, makeStyles, Container} from '@material-ui/core'
 
 const useStyles = makeStyles({
     root: {
         display: "flex",
+        alignItems: "center",
         flex: "1 1 auto"
     },
     mainContainer: {
@@ -25,7 +26,7 @@ function MainLayout({children}: StandardComponentProps) {
         <AppBar position="static" color="secondary">
             <Toolbar>
                 <div className={classes.root}>
-                    <Typography variant="h4">QuickEd</Typography>
+                    <Typography align="center" variant="h4">QuickEd</Typography>
                     <img alt="atom" className="header-icon" src={AtomIcon}/>
                 </div>
                 <Button variant="text">

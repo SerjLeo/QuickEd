@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Game() {
+function GamePage() {
     return (
         <div>
             Game component
@@ -8,4 +8,4 @@ function Game() {
     );
 }
 
-export default Game;
+export default GamePage;

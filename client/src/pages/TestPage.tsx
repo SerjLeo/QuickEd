@@ -1,9 +1,27 @@
 import React, {ChangeEvent} from 'react';
-import Filters from "../shared/Filters";
-import {CheckboxFilter} from "../../interfaces";
-import {Checkbox} from "@material-ui/core"
+import Filters from "../components/shared/Filters";
+import {CheckboxFilter} from "../helpers/interfaces";
+import TestCard from "../components/test/TestCard";
+import {Button, Checkbox} from "@material-ui/core"
+import {makeStyles} from "@material-ui/core/styles";
 
-function Test() {
+const useStyles = makeStyles({
+    testPageWrap: {
+        display: "flex"
+    },
+    testContainer: {
+        width: "calc(100% - 350px)",
+        display: "flex",
+        alignItems: "center",
+        padding: "20px 24px",
+        border: "1px solid silver",
+        marginLeft: 15,
+        justifyContent: "center",
+        borderRadius: 6
+    }
+})
+
+function TestPage() {
     const [activeFilters, setActiveFilters] = React.useState(() => ({
         theme: {
             stereometry: true,
@@ -11,6 +29,14 @@ function Test() {
             trigonometry: true
         }
     }))
+
+    const [activeTest, setActiveTest] = React.useState( (): any => null)
+
+    const classes = useStyles()
+
+    const generateTest = () => {
+        setActiveTest({})
+    }
 
     const handleChange = (event: ChangeEvent, checked: boolean = false): void => {
         const {target} = event
@@ -50,12 +76,21 @@ function Test() {
             ]
         }
     ]
+
+    const applyFilters = () => {
+        console.log(activeFilters)
+    }
     return (
-        <div>
-            <Filters filters={filters}/>
-            Test component
+        <div className={classes.testPageWrap}>
+            <Filters filters={filters} onFiltersSubmit={applyFilters}/>
+            <div className={classes.testContainer}>
+                {activeTest
+                    ?<TestCard test={activeTest}/>
+                    :<Button disableElevation color="primary" variant="contained" onClick={generateTest}>Начать тест</Button>
+                }
+            </div>
         </div>
     );
 }
 
-export default Test;
+export default TestPage;

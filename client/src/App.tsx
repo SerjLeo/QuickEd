@@ -1,19 +1,19 @@
 import React from 'react';
-import './App.css';
+import './styles/App.css';
 import {Route, Switch} from 'react-router-dom'
-import MainLayout from "./components/layout/MainLayout";
-import FormulaComponent from "./components/formula/FormulaComponent";
-import Game from "./components/game/Game";
-import Test from "./components/test/Test";
+import MainLayout from "./layout/MainLayout";
+import FormulaPage from "./pages/FormulaPage";
+import GamePage from "./pages/GamePage";
+import TestPage from "./pages/TestPage";
 
 function App() {
   return (
     <div className="App">
       <MainLayout>
           <Switch>
-              <Route path="/formula" exact component={FormulaComponent} />
-              <Route path="/game" component={Game} />
-              <Route path="/test" component={Test} />
+              <Route path="/formula" exact component={FormulaPage} />
+              <Route path="/game" component={GamePage} />
+              <Route path="/test" component={TestPage} />
           </Switch>
       </MainLayout>
     </div>

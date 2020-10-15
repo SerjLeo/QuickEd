@@ -1,11 +1,11 @@
-import React, {ReactComponentElement, ReactElement} from "react";
+import React from "react";
 
 export interface StandardComponentProps {
     title?: string
     children: React.ReactNode
 }
 
-export interface Formula {
+export interface IFormula {
     id: number
     title: string
     subject: string
@@ -25,6 +25,11 @@ export interface CheckboxFilterItem {
     control: JSX.Element
 }
 
-export interface FiltersProps {
-    filters: Array<CheckboxFilter>
+export interface IFiltersProps {
+    filters: Array<CheckboxFilter>,
+    onFiltersSubmit: () => void
+}
+
+export interface ITestProps {
+    test: {}
 }

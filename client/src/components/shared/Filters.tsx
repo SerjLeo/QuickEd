@@ -1,15 +1,17 @@
 import React from 'react';
 
-import {FormControl, FormLabel, FormGroup, FormControlLabel, Typography, makeStyles} from "@material-ui/core"
-import {FiltersProps} from "../../interfaces";
+import {FormControl, FormLabel, FormGroup, FormControlLabel, Typography, makeStyles, Button} from "@material-ui/core"
+import {IFiltersProps} from "../../helpers/interfaces";
 
 const useStyles = makeStyles({
     filtersWrap: {
-        width: "300px",
         position: "sticky",
         top: 50,
         display: "flex",
-        alignItems: "flex-start"
+        alignItems: "flex-start",
+        padding: "20px 24px",
+        border: "1px solid silver",
+        borderRadius: 6
     },
     filtersTitle: {
         marginBottom: 12
@@ -21,10 +23,17 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start"
+    },
+    filterActions: {
+        display: "flex",
+        marginTop: 15
+    },
+    submitBtn: {
+        marginRight: 12
     }
 })
 
-const Filters = ({filters}: FiltersProps): JSX.Element => {
+const Filters = ({filters, onFiltersSubmit}: IFiltersProps): JSX.Element => {
     const classes = useStyles()
     return (
         <FormControl className={classes.filtersWrap}>
@@ -35,6 +44,11 @@ const Filters = ({filters}: FiltersProps): JSX.Element => {
                     {f.items.map(i => <FormControlLabel key={i._id} label={i.label} control={i.control}/>)}
                 </FormGroup>
             </div>))}
+            <div className={classes.filterActions}>
+                <Button onClick={onFiltersSubmit} className={classes.submitBtn} color="primary"
+                        variant="outlined">Применить</Button>
+                <Button color="secondary" variant="outlined">Сбросить</Button>
+            </div>
         </FormControl>
     );
 };
